@@ -432,21 +432,40 @@
               </div>
             </div>
 
-            <!-- Switcher between room sets -->
+            <!-- Switcher between room sets - all hotel after images -->
             <div class="hotel-thumbnails-picker">
               <div class="hotel-thumb-btn active" onclick="switchHotelPair(0)" title="الجناح الرئيسي (Suite)">
-                <img src="assets/optimized/after_suite.jpg" alt="Hotel Suite Transformation">
+                <img src="assets/optimized/after_suite.jpg" alt="Hotel Suite">
               </div>
-              <div class="hotel-thumb-btn" onclick="switchHotelPair(1)" title="غرفة النوم المزدوجة (King Bed)">
-                <img src="assets/optimized/after_bed.jpg" alt="Bedroom Transformation">
+              <div class="hotel-thumb-btn" onclick="switchHotelPair(1)" title="غرفة النوم (King Bed)">
+                <img src="assets/optimized/after_bed.jpg" alt="Bedroom">
               </div>
-              <div class="hotel-thumb-btn" onclick="switchHotelPair(2)" title="الحمامات الفاخرة (Luxury Bathroom)">
-                <img src="assets/optimized/after_toilet.jpg" alt="Bathroom Transformation">
+              <div class="hotel-thumb-btn" onclick="switchHotelPair(2)" title="الحمامات (Bathroom)">
+                <img src="assets/optimized/after_toilet.jpg" alt="Bathroom">
               </div>
-              <div class="hotel-thumb-btn" onclick="switchHotelPair(3)" title="المداخل والأبواب (Doors & Finishes)">
-                <img src="assets/optimized/after_door.jpg" alt="Door Details">
+              <div class="hotel-thumb-btn" onclick="switchHotelPair(3)" title="الأبواب (Doors)">
+                <img src="assets/optimized/after_door.jpg" alt="Door">
+              </div>
+              <div class="hotel-thumb-btn" onclick="switchHotelPair(4)" title="الجناح الخارجي">
+                <img src="assets/2/after/Suite - Outside.jpg" alt="Suite Outside">
+              </div>
+              <div class="hotel-thumb-btn" onclick="switchHotelPair(5)" title="مدخل الجناح">
+                <img src="assets/2/after/Suite - Door 1.jpg" alt="Suite Door">
+              </div>
+              <div class="hotel-thumb-btn" onclick="switchHotelPair(6)" title="الجناح الداخلي">
+                <img src="assets/2/after/Suite - Indoor.jpg" alt="Suite Indoor">
+              </div>
+              <div class="hotel-thumb-btn" onclick="switchHotelPair(7)" title="King Bed 2">
+                <img src="assets/2/after/Suite - King Bed 2.jpg" alt="King Bed 2">
+              </div>
+              <div class="hotel-thumb-btn" onclick="switchHotelPair(8)" title="حمام غرفة 3">
+                <img src="assets/2/after/Double Room - Toilet 3.jpg" alt="Double Room Toilet">
+              </div>
+              <div class="hotel-thumb-btn" onclick="switchHotelPair(9)" title="Suite Outside 2">
+                <img src="assets/2/after/Suite - Outside 2.jpg" alt="Suite Outside 2">
               </div>
             </div>
+
           </div>
 
           <!-- Interactive Before & After Comparison Slider (#image patch 2#) -->
@@ -508,61 +527,104 @@
             </div>
           </div>
 
-          <!-- 4 Cards Grid Showcase (#image patch 3#) -->
+          <!-- 4 Cards Grid Showcase with multi-image sliders -->
           <div class="marine-cards-grid">
-            <!-- Yacht 1 -->
-            <div class="marine-vessel-card" data-category="yacht1" onclick="openLightbox('assets/3/يخت ١/WhatsApp Image 2026-09-18 at 8.21.26 PM (1).jpeg', 'يخت فاخر 01 — أعمال التكسيات الخشبية البحرية والتجهيزات الداخلية الفخمة')">
+
+            <!-- Yacht 1 — 4 images -->
+            <div class="marine-vessel-card" data-category="yacht1">
               <div class="marine-card-img-wrap">
-                <img src="assets/3/يخت ١/WhatsApp Image 2026-09-18 at 8.21.26 PM (1).jpeg" alt="Luxury Yacht 01 Fit-Out">
+                <div class="card-gallery" id="gallery-yacht1">
+                  <img class="card-gallery-img active" src="assets/3/يخت ١/WhatsApp Image 2026-09-18 at 8.21.26 PM (1).jpeg" alt="يخت 01 - صورة 1" onclick="openLightbox('assets/3/يخت ١/WhatsApp Image 2026-09-18 at 8.21.26 PM (1).jpeg','يخت فاخر 01 — أعمال التكسيات الخشبية البحرية والتجهيزات الداخلية الفخمة')">
+                  <img class="card-gallery-img" src="assets/3/يخت ١/WhatsApp Image 2026-09-18 at 8.21.27 PM (1).jpeg" alt="يخت 01 - صورة 2" onclick="openLightbox('assets/3/يخت ١/WhatsApp Image 2026-09-18 at 8.21.27 PM (1).jpeg','يخت فاخر 01 — تفاصيل التشطيب الداخلي')">
+                  <img class="card-gallery-img" src="assets/3/يخت ١/WhatsApp Image 2026-09-18 at 8.21.27 PM.jpeg" alt="يخت 01 - صورة 3" onclick="openLightbox('assets/3/يخت ١/WhatsApp Image 2026-09-18 at 8.21.27 PM.jpeg','يخت فاخر 01 — الأخشاب البحرية المعالجة')">
+                  <img class="card-gallery-img" src="assets/3/يخت ١/WhatsApp Image 2026-09-18 at 8.21.28 PM.jpeg" alt="يخت 01 - صورة 4" onclick="openLightbox('assets/3/يخت ١/WhatsApp Image 2026-09-18 at 8.21.28 PM.jpeg','يخت فاخر 01 — الجلسات الداخلية الفاخرة')">
+                </div>
                 <span class="marine-card-badge">يخت 01 (Yacht 1)</span>
+                <div class="card-gallery-nav">
+                  <button class="card-nav-btn" onclick="cardGalleryNav('gallery-yacht1',-1)">‹</button>
+                  <span class="card-gallery-dots" id="dots-gallery-yacht1"></span>
+                  <button class="card-nav-btn" onclick="cardGalleryNav('gallery-yacht1',1)">›</button>
+                </div>
               </div>
               <div class="marine-card-body">
                 <h4>يخت فاخر 01 (Yacht 01)</h4>
                 <p>تجهيز الصالون الرئيسي والغرف بأخشاب بحرية معالجة ضد الرطوبة والأملاح مع مقاعد جلدية فاخرة.</p>
                 <div class="marine-card-footer">
-                  <span>Marine Teak & Woodwork</span>
+                  <span>Marine Teak &amp; Woodwork</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </div>
               </div>
             </div>
 
-            <!-- Yacht 2 -->
-            <div class="marine-vessel-card" data-category="yacht2" onclick="openLightbox('assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.42.33 PM.jpeg', 'يخت سوبر 02 — تجديد وتعديل الطوابق الخارجية والديكورات العصرية المتطورة')">
+            <!-- Yacht 2 — 6 images -->
+            <div class="marine-vessel-card" data-category="yacht2">
               <div class="marine-card-img-wrap">
-                <img src="assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.42.33 PM.jpeg" alt="Superyacht 02 Fit-Out">
+                <div class="card-gallery" id="gallery-yacht2">
+                  <img class="card-gallery-img active" src="assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.42.33 PM.jpeg" alt="يخت 02 - صورة 1" onclick="openLightbox('assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.42.33 PM.jpeg','يخت سوبر 02 — تجديد وتعديل الطوابق والجلسات الخارجية')">
+                  <img class="card-gallery-img" src="assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.42.51 PM.jpeg" alt="يخت 02 - صورة 2" onclick="openLightbox('assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.42.51 PM.jpeg','يخت سوبر 02 — الديكورات العصرية')">
+                  <img class="card-gallery-img" src="assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.42.55 PM.jpeg" alt="يخت 02 - صورة 3" onclick="openLightbox('assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.42.55 PM.jpeg','يخت سوبر 02 — تفاصيل التصميم')">
+                  <img class="card-gallery-img" src="assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.42.59 PM.jpeg" alt="يخت 02 - صورة 4" onclick="openLightbox('assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.42.59 PM.jpeg','يخت سوبر 02 — الإضاءة البحرية')">
+                  <img class="card-gallery-img" src="assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.43.07 PM.jpeg" alt="يخت 02 - صورة 5" onclick="openLightbox('assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.43.07 PM.jpeg','يخت سوبر 02 — مقاومة العوامل البحرية')">
+                  <img class="card-gallery-img" src="assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.43.09 PM.jpeg" alt="يخت 02 - صورة 6" onclick="openLightbox('assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.43.09 PM.jpeg','يخت سوبر 02 — عوازل الصوت')">
+                </div>
                 <span class="marine-card-badge">يخت 02 (Yacht 2)</span>
+                <div class="card-gallery-nav">
+                  <button class="card-nav-btn" onclick="cardGalleryNav('gallery-yacht2',-1)">‹</button>
+                  <span class="card-gallery-dots" id="dots-gallery-yacht2"></span>
+                  <button class="card-nav-btn" onclick="cardGalleryNav('gallery-yacht2',1)">›</button>
+                </div>
               </div>
               <div class="marine-card-body">
                 <h4>يخت سياحي فاخر 02 (Yacht 02)</h4>
                 <p>إعادة تصميم الطوابق وجلسات السطح الخارجي مع أنظمة إضاءة بحرية مقاومة للمياه وعوازل للصوت.</p>
                 <div class="marine-card-footer">
-                  <span>Deck Renovation & Styling</span>
+                  <span>Deck Renovation &amp; Styling</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </div>
               </div>
             </div>
 
-            <!-- Yacht 3 -->
-            <div class="marine-vessel-card" data-category="yacht3" onclick="openLightbox('assets/3/يخت ٣/WhatsApp Image 2026-09-18 at 8.26.03 PM (10).jpeg', 'يخت 03 — تصنيع الكبائن الداخلية وتوزيع الأثاث المدمج لاستغلال المساحات')">
+            <!-- Yacht 3 — 5 images -->
+            <div class="marine-vessel-card" data-category="yacht3">
               <div class="marine-card-img-wrap">
-                <img src="assets/3/يخت ٣/WhatsApp Image 2026-09-18 at 8.26.03 PM (10).jpeg" alt="Yacht 03 Cabin Fit-Out">
+                <div class="card-gallery" id="gallery-yacht3">
+                  <img class="card-gallery-img active" src="assets/3/يخت ٣/WhatsApp Image 2026-09-18 at 8.26.03 PM (10).jpeg" alt="يخت 03 - صورة 1" onclick="openLightbox('assets/3/يخت ٣/WhatsApp Image 2026-09-18 at 8.26.03 PM (10).jpeg','يخت 03 — تصنيع الكبائن الداخلية')">
+                  <img class="card-gallery-img" src="assets/3/يخت ٣/WhatsApp Image 2026-09-18 at 8.26.03 PM (4).jpeg" alt="يخت 03 - صورة 2" onclick="openLightbox('assets/3/يخت ٣/WhatsApp Image 2026-09-18 at 8.26.03 PM (4).jpeg','يخت 03 — توزيع الأثاث المدمج')">
+                  <img class="card-gallery-img" src="assets/3/يخت ٣/WhatsApp Image 2026-09-18 at 8.26.03 PM (6).jpeg" alt="يخت 03 - صورة 3" onclick="openLightbox('assets/3/يخت ٣/WhatsApp Image 2026-09-18 at 8.26.03 PM (6).jpeg','يخت 03 — تفاصيل التشطيبات')">
+                  <img class="card-gallery-img" src="assets/3/يخت ٣/WhatsApp Image 2026-09-18 at 8.26.03 PM (7).jpeg" alt="يخت 03 - صورة 4" onclick="openLightbox('assets/3/يخت ٣/WhatsApp Image 2026-09-18 at 8.26.03 PM (7).jpeg','يخت 03 — استغلال المساحات')">
+                  <img class="card-gallery-img" src="assets/3/يخت ٣/WhatsApp Image 2026-09-18 at 8.26.03 PM (8).jpeg" alt="يخت 03 - صورة 5" onclick="openLightbox('assets/3/يخت ٣/WhatsApp Image 2026-09-18 at 8.26.03 PM (8).jpeg','يخت 03 — الدقة التنفيذية العالية')">
+                </div>
                 <span class="marine-card-badge">يخت 03 (Yacht 3)</span>
+                <div class="card-gallery-nav">
+                  <button class="card-nav-btn" onclick="cardGalleryNav('gallery-yacht3',-1)">‹</button>
+                  <span class="card-gallery-dots" id="dots-gallery-yacht3"></span>
+                  <button class="card-nav-btn" onclick="cardGalleryNav('gallery-yacht3',1)">›</button>
+                </div>
               </div>
               <div class="marine-card-body">
                 <h4>يخت بحري 03 (Yacht 03)</h4>
                 <p>تشطيب الكبائن وغرف القيادة بتفاصيل تنفيذية عالية الدقة تحقق الاستغلال الأمثل لكل سنتيمتر مربع.</p>
                 <div class="marine-card-footer">
-                  <span>Cabin Optimization & Interior</span>
+                  <span>Cabin Optimization &amp; Interior</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </div>
               </div>
             </div>
 
-            <!-- Submarine -->
-            <div class="marine-vessel-card" data-category="sub" onclick="openLightbox('assets/3/غواصه/WhatsApp Image 2026-09-18 at 8.26.03 PM.jpeg', 'الغواصة البحرية المتخصصة — تعديلات وتجهيزات داخلية خاصة تلبي معايير السلامة الصارمة')">
+            <!-- Submarine — 3 images -->
+            <div class="marine-vessel-card" data-category="sub">
               <div class="marine-card-img-wrap">
-                <img src="assets/3/غواصه/WhatsApp Image 2026-09-18 at 8.26.03 PM.jpeg" alt="Specialized Submarine Interior Fit-Out">
+                <div class="card-gallery" id="gallery-sub">
+                  <img class="card-gallery-img active" src="assets/3/غواصه/WhatsApp Image 2026-09-18 at 8.26.03 PM.jpeg" alt="غواصة - صورة 1" onclick="openLightbox('assets/3/غواصه/WhatsApp Image 2026-09-18 at 8.26.03 PM.jpeg','الغواصة — تعديلات وتجهيزات داخلية خاصة')">
+                  <img class="card-gallery-img" src="assets/3/غواصه/WhatsApp Image 2026-09-18 at 8.26.03 PM (1).jpeg" alt="غواصة - صورة 2" onclick="openLightbox('assets/3/غواصه/WhatsApp Image 2026-09-18 at 8.26.03 PM (1).jpeg','الغواصة — مواد مقاومة للضغط البحري')">
+                  <img class="card-gallery-img" src="assets/3/غواصه/WhatsApp Image 2026-09-18 at 8.26.03 PM (2).jpeg" alt="غواصة - صورة 3" onclick="openLightbox('assets/3/غواصه/WhatsApp Image 2026-09-18 at 8.26.03 PM (2).jpeg','الغواصة — معايير السلامة الصارمة')">
+                </div>
                 <span class="marine-card-badge">غواصة متخصصة (Submarine)</span>
+                <div class="card-gallery-nav">
+                  <button class="card-nav-btn" onclick="cardGalleryNav('gallery-sub',-1)">‹</button>
+                  <span class="card-gallery-dots" id="dots-gallery-sub"></span>
+                  <button class="card-nav-btn" onclick="cardGalleryNav('gallery-sub',1)">›</button>
+                </div>
               </div>
               <div class="marine-card-body">
                 <h4>الغواصة المتخصصة (Submarine)</h4>
@@ -573,9 +635,11 @@
                 </div>
               </div>
             </div>
+
           </div>
-        </div>
-      </section>
+
+
+
 
       <!-- ===================================================================
            PAGE 6: COMMERCIAL & SPORTS (المساحات الرياضية والتجارية)

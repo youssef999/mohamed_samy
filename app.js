@@ -16,29 +16,20 @@
     hotelCurrentPair: 0
   };
 
-  // Hotel Before/After Pairs Data
+  // Hotel Before/After Pairs Data (all available images)
   const hotelPairs = [
-    {
-      before: 'assets/2/before/1000187118.jpg',
-      after: 'assets/optimized/after_suite.jpg',
-      title: 'الجناح الفندقي الرئيسي (Suite Renovation)'
-    },
-    {
-      before: 'assets/2/before/1000186308.jpg',
-      after: 'assets/optimized/after_bed.jpg',
-      title: 'غرفة النوم المزدوجة (King Bedroom)'
-    },
-    {
-      before: 'assets/2/before/1000187592.jpg',
-      after: 'assets/optimized/after_toilet.jpg',
-      title: 'الحمامات الفندقية والرخام (Luxury Bathroom)'
-    },
-    {
-      before: 'assets/2/before/1000186573.jpg',
-      after: 'assets/optimized/after_door.jpg',
-      title: 'مداخل الغرف والأبواب (Suite Entrances & Woodwork)'
-    }
+    { before: 'assets/2/before/1000187118.jpg', after: 'assets/optimized/after_suite.jpg', title: 'الجناح الفندقي الرئيسي (Suite Renovation)' },
+    { before: 'assets/2/before/1000186308.jpg', after: 'assets/optimized/after_bed.jpg', title: 'غرفة النوم المزدوجة (King Bedroom)' },
+    { before: 'assets/2/before/1000187592.jpg', after: 'assets/optimized/after_toilet.jpg', title: 'الحمامات الفندقية والرخام (Luxury Bathroom)' },
+    { before: 'assets/2/before/1000186573.jpg', after: 'assets/optimized/after_door.jpg', title: 'مداخل الغرف والأبواب (Suite Entrances & Woodwork)' },
+    { before: 'assets/2/before/1000186574.jpg', after: 'assets/2/after/Suite - Outside.jpg', title: 'الجناح الخارجي (Suite Exterior)' },
+    { before: 'assets/2/before/1000187115.jpg', after: 'assets/2/after/Suite - Door 1.jpg', title: 'مدخل الجناح الفاخر (Suite Main Entrance)' },
+    { before: 'assets/2/before/1000221273.jpg', after: 'assets/2/after/Suite - Indoor.jpg', title: 'الديكور الداخلي للجناح (Suite Indoor Decor)' },
+    { before: 'assets/2/before/1000186308.jpg', after: 'assets/2/after/Suite - King Bed 2.jpg', title: 'غرفة النوم الملكية (King Suite Bedroom)' },
+    { before: 'assets/2/before/1000187592.jpg', after: 'assets/2/after/Double Room - Toilet 3.jpg', title: 'حمام الغرفة المزدوجة (Double Room Bathroom)' },
+    { before: 'assets/2/before/1000187118.jpg', after: 'assets/2/after/Suite - Outside 2.jpg', title: 'الجناح الخارجي الثاني (Suite Exterior View 2)' }
   ];
+
 
   // DOM Elements
   const pages = document.querySelectorAll('.profile-page');
@@ -511,6 +502,38 @@
 
   pages.forEach((page) => observer.observe(page));
 
-  // Initialize
+  /* --------------------------------------------------------------------------
+     CARD GALLERY SLIDER (for marine vessel cards & any multi-image card)
+     -------------------------------------------------------------------------- */
+  function initCardGalleries() {
+    document.querySelectorAll('.card-gallery').forEach(gallery => {
+      const id = gallery.id;
+      const dotsEl = document.getElementById('dots-' + id);
+      const imgs = gallery.querySelectorAll('.card-gallery-img');
+      if (!dotsEl || imgs.length === 0) return;
+      // Build dots
+      dotsEl.innerHTML = '';
+      imgs.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'cgal-dot' + (i === 0 ? ' active' : '');
+        dotsEl.appendChild(dot);
+      });
+    });
+  }
+
+  window.cardGalleryNav = function (galleryId, dir) {
+    const gallery = document.getElementById(galleryId);
+    if (!gallery) return;
+    const imgs = Array.from(gallery.querySelectorAll('.card-gallery-img'));
+    const dots = document.querySelectorAll('#dots-' + galleryId + ' .cgal-dot');
+    const current = imgs.findIndex(img => img.classList.contains('active'));
+    const next = (current + dir + imgs.length) % imgs.length;
+    imgs[current].classList.remove('active');
+    imgs[next].classList.add('active');
+    dots.forEach((d, i) => d.classList.toggle('active', i === next));
+  };
+
+  // Init
+  initCardGalleries();
   updateSlidesUI();
 })();
