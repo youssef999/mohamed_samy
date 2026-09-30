@@ -2,11 +2,14 @@
 __pycache__/
 *.pyc
 
-# Large raw/unoptimized assets
+# Large raw assets (unneeded)
 assets/1/
-assets/2/
-assets/3/
 assets/previews/
+
+# Video files (too large)
+*.mp4
+*.mov
+*.avi
 
 # PDF
 *.pdf
