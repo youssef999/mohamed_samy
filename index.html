@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eng. Mohamed Sami Haikal | Company Profile & Portfolio 2026</title>
+  <meta name="description" content="Company Profile & Portfolio 2026 - Interior Design & Turnkey Fit-Out Solutions by Eng. Mohamed Sami Haikal. Specializing in luxury residential, commercial, hotel renovations, and marine vessels.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+<body class="mode-presentation">
+
+  <!-- TOP LUXURY HEADER -->
+  <header class="site-header">
+    <div class="header-brand" onclick="goToSlide(1)">
+      <div class="brand-logo-container">
+        <img src="assets/logo.png" alt="Eng. Mohamed Sami Haikal Logo" class="brand-logo-img">
+      </div>
+      <div class="brand-titles">
+        <span class="brand-name">م. محمد سامي هيكل</span>
+        <span class="brand-tagline">Architectural Fit-Out & Design</span>
+      </div>
+    </div>
+
+    <!-- NAVIGATION MENU (DESKTOP) -->
+    <nav class="header-nav">
+      <a href="#page-1" class="nav-link active" data-page="1" onclick="handleNavClick(event, 1)"><span class="nav-num">01</span> الغلاف</a>
+      <a href="#page-2" class="nav-link" data-page="2" onclick="handleNavClick(event, 2)"><span class="nav-num">02</span> من نحن</a>
+      <a href="#page-3" class="nav-link" data-page="3" onclick="handleNavClick(event, 3)"><span class="nav-num">03</span> خدماتنا</a>
+      <a href="#page-4" class="nav-link" data-page="4" onclick="handleNavClick(event, 4)"><span class="nav-num">04</span> تطوير الفندق</a>
+      <a href="#page-5" class="nav-link" data-page="5" onclick="handleNavClick(event, 5)"><span class="nav-num">05</span> المشاريع البحرية</a>
+      <a href="#page-6" class="nav-link" data-page="6" onclick="handleNavClick(event, 6)"><span class="nav-num">06</span> المساحات الرياضية</a>
+      <a href="#page-7" class="nav-link" data-page="7" onclick="handleNavClick(event, 7)"><span class="nav-num">07</span> تواصل معنا</a>
+    </nav>
+
+    <!-- ACTION CONTROLS & MODE SWITCH -->
+    <div class="header-actions">
+      <!-- Mode Toggle -->
+      <div class="mode-toggle" title="تبديل طريقة العرض">
+        <button class="mode-btn active" id="btn-mode-presentation" onclick="setMode('presentation')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          عرض 16:9
+        </button>
+        <button class="mode-btn" id="btn-mode-scroll" onclick="setMode('scroll')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          تصفح مستمر
+        </button>
+      </div>
+
+      <!-- PDF Download Button -->
+      <a href="Mohamed_Samy_Haikal_Company_Profile.pdf" download="Mohamed_Samy_Haikal_Company_Profile.pdf" class="btn-luxury btn-luxury-outline" id="btn-download-pdf" title="تحميل ملف البروفايل PDF">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        تحميل PDF
+      </a>
+
+      <!-- Print / Export Button -->
+      <button class="btn-luxury btn-luxury-gold" onclick="window.print()" title="طباعة أو تصدير PDF بجودة عالية">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        طباعة Profile
+      </button>
+
+      <!-- Fullscreen Toggle -->
+      <button class="btn-icon" onclick="toggleFullscreen()" title="شاشة كاملة">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN APP WRAPPER -->
+  <main class="profile-wrapper">
+    <div class="slides-viewport">
+
+      <!-- ===================================================================
+           PAGE 1: COVER
+           =================================================================== -->
+      <section class="profile-page active" id="page-1" data-page="1">
+        <div class="slide-meta-bar">
+          <div class="page-indicator-badge">
+            <span class="dot"></span>
+            PAGE 01 / 07
+          </div>
+          <div class="slide-category-tag">PORTFOLIO & PROFILE 2026</div>
+        </div>
+
+        <div class="cover-container">
+          <!-- Text Column -->
+          <div class="cover-content-col">
+            <div class="cover-header-brand">
+              <div class="cover-logo-wrapper">
+                <img src="assets/logo.png" alt="Mohamed Sami Haikal" class="cover-logo-img">
+              </div>
+              <div class="cover-brand-meta">
+                <div class="meta-en">ARCHITECTURE & FIT-OUT</div>
+                <div class="meta-year">PORTFOLIO EDITION 2026</div>
+              </div>
+            </div>
+
+            <div class="cover-titles-block">
+              <div class="cover-subtitle-pill">
+                <span>✦</span>
+                <span>COMPANY PROFILE & PORTFOLIO 2026</span>
+              </div>
+              <h1 class="cover-main-title">
+                المهندس <span class="gold-text">محمد سامي هيكل</span>
+              </h1>
+              <div class="cover-main-title-en">Eng. Mohamed Sami Haikal</div>
+              <p class="cover-desc-text">
+                تصميم داخلي وتشطيبات متكاملة وحلول معمارية مبتكرة تجمع بين الفخامة المعاصرة والدقة التنفيذية المتناهية للمشاريع السكنية، الفندقية، التجارية والقطع البحرية.
+              </p>
+            </div>
+
+            <div class="cover-badges-row">
+              <div class="cover-badge-item">
+                <span class="badge-num">100%</span>
+                <span class="badge-label">مطابقة الواقع لتصاميم الـ 3D</span>
+              </div>
+              <div class="cover-badge-item">
+                <span class="badge-num">Turnkey</span>
+                <span class="badge-label">تسليم مفتاح متكامل</span>
+              </div>
+              <div class="cover-badge-item">
+                <span class="badge-num">Direct</span>
+                <span class="badge-label">إشراف هندسي ميداني مباشر</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual Column -->
+          <div class="cover-visual-col">
+            <img src="assets/cover.jpg" alt="Luxury Fitness Studio & Interior 3D Design" class="cover-image-main">
+            <div class="cover-image-overlay"></div>
+            <div class="cover-floating-tag">
+              <div class="floating-tag-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              </div>
+              <div class="floating-tag-texts">
+                <h5>Bespoke Interior & Turnkey Fit-Out</h5>
+                <p>High-End Craftsmanship & Engineering Precision</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           PAGE 2: ABOUT US & VISION (عن المكتب والرؤية)
+           =================================================================== -->
+      <section class="profile-page" id="page-2" data-page="2">
+        <div class="slide-meta-bar">
+          <div class="page-indicator-badge">
+            <span class="dot"></span>
+            PAGE 02 / 07
+          </div>
+          <div class="slide-category-tag">ABOUT US & CORE VALUES</div>
+        </div>
+
+        <div class="page-inner-grid">
+          <!-- Text Content -->
+          <div class="about-content-col">
+            <div class="section-lead-header">
+              <span class="section-label">عن المكتب والرؤية | About Us & Vision</span>
+              <h2 class="section-title">
+                نبتكر مساحات <span class="gold-highlight">تجمع بين الفخامة والوظيفية</span>
+              </h2>
+            </div>
+
+            <div class="about-executive-quote">
+              "نبتكر مساحات تجمع بين الفخامة والوظيفية، ونحول الرؤى التصميمية إلى واقع ملموس بدقة تنفيذية متناهية. نتمتع بخبرة واسعة في إدارة وتنفيذ مشاريع التشطيبات الفاخرة، بدءاً من المساحات السكنية والتجارية، وصولاً إلى المشاريع الخاصة والتخصصية كالفنادق والقطع البحرية."
+            </div>
+
+            <!-- Core Values -->
+            <div class="values-container">
+              <div class="value-card">
+                <div class="value-number-box">01</div>
+                <div class="value-text">
+                  <h4>الدقة في التنفيذ (Precision Execution)</h4>
+                  <p>مطابقة تامة وموثقة للواقع المنفذ مع التصاميم ثلاثية الأبعاد الـ 3D بنسبة 100% بدون أي تهاون.</p>
+                </div>
+              </div>
+
+              <div class="value-card">
+                <div class="value-number-box">02</div>
+                <div class="value-text">
+                  <h4>السلامة والجودة (Safety & Quality Standards)</h4>
+                  <p>الالتزام بأعلى معايير السلامة المهنية ومواصفات الجودة القياسية مع احترافية تامة لفرق العمل بالموقع.</p>
+                </div>
+              </div>
+
+              <div class="value-card">
+                <div class="value-number-box">03</div>
+                <div class="value-text">
+                  <h4>الإشراف المباشر (Direct Engineering Supervision)</h4>
+                  <p>متابعة ميدانية يومية ومستمرة من المهندس شخصياً لكافة تفاصيل وبنود مراحل التشطيب والتوريدات.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Visual: Engineer Discussing Blueprints on Site (#image 1#) -->
+          <div class="about-visual-col">
+            <div class="about-image-card" onclick="openLightbox('assets/optimized/engineer_onsite.jpg', 'م. محمد سامي هيكل أثناء الإشراف الميداني ومناقشة المخططات مع فريق العمل في الموقع')">
+              <img src="assets/optimized/engineer_onsite.jpg" alt="Eng. Mohamed Sami Haikal On Site Field Supervision">
+              <div class="about-image-caption">
+                <h5>الإشراف الهندسي الميداني المستمر</h5>
+                <p>Eng. Mohamed Sami Haikal | Direct On-Site Blueprint & Quality Coordination</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           PAGE 3: SERVICES & PROCESS (خدماتنا المتكاملة وطريقة العمل)
+           =================================================================== -->
+      <section class="profile-page" id="page-3" data-page="3">
+        <div class="slide-meta-bar">
+          <div class="page-indicator-badge">
+            <span class="dot"></span>
+            PAGE 03 / 07
+          </div>
+          <div class="slide-category-tag">SERVICES & WORKFLOW</div>
+        </div>
+
+        <div class="services-layout-grid">
+          <!-- Section Title -->
+          <div class="section-lead-header">
+            <span class="section-label">خدماتنا المتكاملة | Integrated Services</span>
+            <h2 class="section-title">
+              حلول تشطيب متكاملة <span class="gold-highlight">من المخطط حتى التسليم</span>
+            </h2>
+          </div>
+
+          <!-- 4 Core Services Grid -->
+          <div class="services-cards-grid">
+            <!-- Service 1 -->
+            <div class="service-box">
+              <div class="service-box-header">
+                <div class="service-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                </div>
+                <span class="service-num">01</span>
+              </div>
+              <h4>التصميم الداخلي و3D Visualization</h4>
+              <p>تحويل الأفكار والرؤى المعمارية إلى مخططات تنفيذية ولقطات واقعية ثلاثية الأبعاد تحاكي أدق تفاصيل المواد والإضاءة.</p>
+              <div class="service-en-tag">Interior Architecture & 3D Visualization</div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-box">
+              <div class="service-box-header">
+                <div class="service-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <span class="service-num">02</span>
+              </div>
+              <h4>التنفيذ وتسليم مفتاح (Turnkey Fit-Out)</h4>
+              <p>إدارة وتنفيذ شاملة لكافة أعمال التشطيبات والديكورات والأعمال الكهروميكانيكية بأعلى مواصفات الجودة حتى اللمسة الأخيرة.</p>
+              <div class="service-en-tag">Turnkey Execution & Fit-Out Management</div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-box">
+              <div class="service-box-header">
+                <div class="service-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <span class="service-num">03</span>
+              </div>
+              <h4>الإشراف الهندسي والميداني</h4>
+              <p>ضبط الجودة الصارم والفحص المستمر للمواد والتأكد من مطابقتها للمواصفات القياسية للجودة ومعايير السلامة المهنية.</p>
+              <div class="service-en-tag">Quality Assurance & Engineering Oversight</div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-box">
+              <div class="service-box-header">
+                <div class="service-icon-wrap">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+                </div>
+                <span class="service-num">04</span>
+              </div>
+              <h4>المشاريع الخاصة والتخصصية</h4>
+              <p>خبرة نادرة في تشطيبات وتجهيزات الفنادق، اليخوت الفاخرة، الغواصات البحرية، والمنشآت الرياضية والتجارية الحساسة.</p>
+              <div class="service-en-tag">Specialized, Marine & Hospitality Fit-Outs</div>
+            </div>
+          </div>
+
+          <!-- Workflow Strip -->
+          <div class="workflow-section-container">
+            <div class="workflow-header-row">
+              <h5>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                مراحل العمل المتكاملة (Workflow & Execution Methodology)
+              </h5>
+              <!-- Safety Vest Team Batch Preview (#image patch 1#) -->
+              <div class="patch-badge-text">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                فرق العمل الميداني بالزي الرسمي والهوية المعتمدة
+              </div>
+            </div>
+
+            <!-- 5 Steps Flow -->
+            <div class="workflow-steps-row">
+              <div class="workflow-step-item">
+                <div class="step-num">1</div>
+                <div class="step-info">
+                  <span class="step-name">المعاينة والدراسة</span>
+                  <span class="step-en">Site Survey & Analysis</span>
+                </div>
+              </div>
+
+              <div class="workflow-step-item">
+                <div class="step-num">2</div>
+                <div class="step-info">
+                  <span class="step-name">التصميم الـ 3D</span>
+                  <span class="step-en">3D Concept & Render</span>
+                </div>
+              </div>
+
+              <div class="workflow-step-item">
+                <div class="step-num">3</div>
+                <div class="step-info">
+                  <span class="step-name">اختيار الخامات والمواد</span>
+                  <span class="step-en">Material Selection</span>
+                </div>
+              </div>
+
+              <div class="workflow-step-item">
+                <div class="step-num">4</div>
+                <div class="step-info">
+                  <span class="step-name">التنفيذ الميداني</span>
+                  <span class="step-en">On-Site Execution</span>
+                </div>
+              </div>
+
+              <div class="workflow-step-item">
+                <div class="step-num">5</div>
+                <div class="step-info">
+                  <span class="step-name">التسليم الجاهز</span>
+                  <span class="step-en">Turnkey Handover</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Team Safety Vest Photos Carousel Strip (#image patch 1#) -->
+            <div class="team-patch-strip">
+              <div class="patch-photo-thumb" onclick="openLightbox('assets/optimized/team_1.jpg', 'فريق العمل في الموقع مرتدياً سترات العمل الرسمية بشعار الشركة')">
+                <img src="assets/optimized/team_1.jpg" alt="Field Team with Branded Safety Vest">
+              </div>
+              <div class="patch-photo-thumb" onclick="openLightbox('assets/optimized/team_2.jpg', 'انضباط والتزام فرق التنفيذ أثناء الأعمال الميدانية')">
+                <img src="assets/optimized/team_2.jpg" alt="Field Execution Safety">
+              </div>
+              <div class="patch-photo-thumb" onclick="openLightbox('assets/optimized/team_3.jpg', 'المتابعة الدقيقة لتركيبات وتفاصيل التشطيبات')">
+                <img src="assets/optimized/team_3.jpg" alt="Site Work Detail">
+              </div>
+              <div class="patch-photo-thumb" onclick="openLightbox('assets/optimized/team_4.jpg', 'إشراف مباشر وتنسيق مستمر لضمان سرعة الإنجاز')">
+                <img src="assets/optimized/team_4.jpg" alt="Site Coordination">
+              </div>
+              <div class="patch-photo-thumb" onclick="openLightbox('assets/optimized/team_5.jpg', 'فحص الجودة والالتزام بالمواصفات الهندسية')">
+                <img src="assets/optimized/team_5.jpg" alt="Quality Check">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           PAGE 4: HOTEL RENOVATION (مشروع تطوير وتجهيز الفندق)
+           =================================================================== -->
+      <section class="profile-page" id="page-4" data-page="4">
+        <div class="slide-meta-bar">
+          <div class="page-indicator-badge">
+            <span class="dot"></span>
+            PAGE 04 / 07
+          </div>
+          <div class="slide-category-tag">CASE STUDY: HOTEL TRANSFORMATION</div>
+        </div>
+
+        <div class="hotel-page-grid">
+          <!-- Text Info -->
+          <div class="hotel-info-col">
+            <div class="section-lead-header">
+              <span class="section-label">مشروع الفندق — رحلة التحول المعماري | Hotel Renovation</span>
+              <h2 class="section-title">
+                مشروع تطوير <span class="gold-highlight">وتجهيز الفندق</span>
+              </h2>
+            </div>
+
+            <div class="hotel-desc-block">
+              "إعادة إنعاش وتطوير المساحات الفندقية برؤية معمارية حديثة مع مراعاة أعلى درجات الجودة والفينش."
+            </div>
+
+            <div class="hotel-features-list">
+              <div class="hotel-feat-item">
+                <div class="hotel-feat-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="hotel-feat-text">
+                  <h6>تطوير الأجنحة الملكية</h6>
+                  <span>Executive Suites Upgrades</span>
+                </div>
+              </div>
+
+              <div class="hotel-feat-item">
+                <div class="hotel-feat-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                </div>
+                <div class="hotel-feat-text">
+                  <h6>تجديد الحمامات والرخام</h6>
+                  <span>Luxury Marble & Sanitary Finishes</span>
+                </div>
+              </div>
+
+              <div class="hotel-feat-item">
+                <div class="hotel-feat-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div class="hotel-feat-text">
+                  <h6>إضاءة معمارية ذكية</h6>
+                  <span>Architectural Mood Lighting</span>
+                </div>
+              </div>
+
+              <div class="hotel-feat-item">
+                <div class="hotel-feat-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="hotel-feat-text">
+                  <h6>أعلى درجات الفينش</h6>
+                  <span>5-Star Hospitality Standards</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Switcher between room sets -->
+            <div class="hotel-thumbnails-picker">
+              <div class="hotel-thumb-btn active" onclick="switchHotelPair(0)" title="الجناح الرئيسي (Suite)">
+                <img src="assets/optimized/after_suite.jpg" alt="Hotel Suite Transformation">
+              </div>
+              <div class="hotel-thumb-btn" onclick="switchHotelPair(1)" title="غرفة النوم المزدوجة (King Bed)">
+                <img src="assets/optimized/after_bed.jpg" alt="Bedroom Transformation">
+              </div>
+              <div class="hotel-thumb-btn" onclick="switchHotelPair(2)" title="الحمامات الفاخرة (Luxury Bathroom)">
+                <img src="assets/optimized/after_toilet.jpg" alt="Bathroom Transformation">
+              </div>
+              <div class="hotel-thumb-btn" onclick="switchHotelPair(3)" title="المداخل والأبواب (Doors & Finishes)">
+                <img src="assets/optimized/after_door.jpg" alt="Door Details">
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Before & After Comparison Slider (#image patch 2#) -->
+          <div class="before-after-wrapper" id="hotel-ba-slider">
+            <div class="ba-image-container">
+              <!-- Before Image (Base Layer) -->
+              <img src="assets/2/before/1000187118.jpg" alt="Before Hotel Renovation" class="ba-image ba-before-img" id="ba-before-img">
+              <span class="ba-badge ba-badge-before">BEFORE | قَبْل التطوير</span>
+
+              <!-- After Image (Clipped Top Layer) -->
+              <div class="ba-after-layer" id="ba-after-layer">
+                <img src="assets/optimized/after_suite.jpg" alt="After Luxury Hotel Renovation" class="ba-image ba-after-img" id="ba-after-img">
+                <span class="ba-badge ba-badge-after">AFTER | بَعْدَ التشطيب الفاخر</span>
+              </div>
+
+              <!-- Draggable Handle Divider -->
+              <div class="ba-handle-line" id="ba-handle-line">
+                <div class="ba-handle-circle" id="ba-handle-circle">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="8 17 3 12 8 7"/><polyline points="16 7 21 12 16 17"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           PAGE 5: MARINE & SPECIALIZED (المشاريع البحرية والقطاعات الخاصة)
+           =================================================================== -->
+      <section class="profile-page" id="page-5" data-page="5">
+        <div class="slide-meta-bar">
+          <div class="page-indicator-badge">
+            <span class="dot"></span>
+            PAGE 05 / 07
+          </div>
+          <div class="slide-category-tag">SPECIALIZED: MARINE CRAFT & SUBMARINE</div>
+        </div>
+
+        <div class="marine-page-container">
+          <!-- Lead Row -->
+          <div class="marine-meta-row">
+            <div class="section-lead-header">
+              <span class="section-label">المشاريع البحرية والخاصة | Marine & Marine Craft Fit-Out</span>
+              <h2 class="section-title">
+                تجهيز وتعديل <span class="gold-highlight">اليخوت الفاخرة والغواصات البحرية</span>
+              </h2>
+              <p style="font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.35rem; max-width: 850px;">
+                "تنفيذ وتجهيز الديكورات والتعديلات الداخلية لليخوت والغواصات وفقاً لمعايير الأمان ومقاومة العوامل البحرية، مع الحفاظ على أقصى درجات الفخامة واستغلال المساحات."
+              </p>
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="marine-filter-pills">
+              <button class="marine-pill-btn active" onclick="filterMarine('all')">كافة القطع البحرية</button>
+              <button class="marine-pill-btn" onclick="filterMarine('yacht1')">يخت 1</button>
+              <button class="marine-pill-btn" onclick="filterMarine('yacht2')">يخت 2</button>
+              <button class="marine-pill-btn" onclick="filterMarine('yacht3')">يخت 3</button>
+              <button class="marine-pill-btn" onclick="filterMarine('sub')">الغواصة</button>
+            </div>
+          </div>
+
+          <!-- 4 Cards Grid Showcase (#image patch 3#) -->
+          <div class="marine-cards-grid">
+            <!-- Yacht 1 -->
+            <div class="marine-vessel-card" data-category="yacht1" onclick="openLightbox('assets/3/يخت ١/WhatsApp Image 2026-09-18 at 8.21.26 PM (1).jpeg', 'يخت فاخر 01 — أعمال التكسيات الخشبية البحرية والتجهيزات الداخلية الفخمة')">
+              <div class="marine-card-img-wrap">
+                <img src="assets/3/يخت ١/WhatsApp Image 2026-09-18 at 8.21.26 PM (1).jpeg" alt="Luxury Yacht 01 Fit-Out">
+                <span class="marine-card-badge">يخت 01 (Yacht 1)</span>
+              </div>
+              <div class="marine-card-body">
+                <h4>يخت فاخر 01 (Yacht 01)</h4>
+                <p>تجهيز الصالون الرئيسي والغرف بأخشاب بحرية معالجة ضد الرطوبة والأملاح مع مقاعد جلدية فاخرة.</p>
+                <div class="marine-card-footer">
+                  <span>Marine Teak & Woodwork</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Yacht 2 -->
+            <div class="marine-vessel-card" data-category="yacht2" onclick="openLightbox('assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.42.33 PM.jpeg', 'يخت سوبر 02 — تجديد وتعديل الطوابق الخارجية والديكورات العصرية المتطورة')">
+              <div class="marine-card-img-wrap">
+                <img src="assets/3/يخت ٢/WhatsApp Image 2026-09-18 at 8.42.33 PM.jpeg" alt="Superyacht 02 Fit-Out">
+                <span class="marine-card-badge">يخت 02 (Yacht 2)</span>
+              </div>
+              <div class="marine-card-body">
+                <h4>يخت سياحي فاخر 02 (Yacht 02)</h4>
+                <p>إعادة تصميم الطوابق وجلسات السطح الخارجي مع أنظمة إضاءة بحرية مقاومة للمياه وعوازل للصوت.</p>
+                <div class="marine-card-footer">
+                  <span>Deck Renovation & Styling</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Yacht 3 -->
+            <div class="marine-vessel-card" data-category="yacht3" onclick="openLightbox('assets/3/يخت ٣/WhatsApp Image 2026-09-18 at 8.26.03 PM (10).jpeg', 'يخت 03 — تصنيع الكبائن الداخلية وتوزيع الأثاث المدمج لاستغلال المساحات')">
+              <div class="marine-card-img-wrap">
+                <img src="assets/3/يخت ٣/WhatsApp Image 2026-09-18 at 8.26.03 PM (10).jpeg" alt="Yacht 03 Cabin Fit-Out">
+                <span class="marine-card-badge">يخت 03 (Yacht 3)</span>
+              </div>
+              <div class="marine-card-body">
+                <h4>يخت بحري 03 (Yacht 03)</h4>
+                <p>تشطيب الكبائن وغرف القيادة بتفاصيل تنفيذية عالية الدقة تحقق الاستغلال الأمثل لكل سنتيمتر مربع.</p>
+                <div class="marine-card-footer">
+                  <span>Cabin Optimization & Interior</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submarine -->
+            <div class="marine-vessel-card" data-category="sub" onclick="openLightbox('assets/3/غواصه/WhatsApp Image 2026-09-18 at 8.26.03 PM.jpeg', 'الغواصة البحرية المتخصصة — تعديلات وتجهيزات داخلية خاصة تلبي معايير السلامة الصارمة')">
+              <div class="marine-card-img-wrap">
+                <img src="assets/3/غواصه/WhatsApp Image 2026-09-18 at 8.26.03 PM.jpeg" alt="Specialized Submarine Interior Fit-Out">
+                <span class="marine-card-badge">غواصة متخصصة (Submarine)</span>
+              </div>
+              <div class="marine-card-body">
+                <h4>الغواصة المتخصصة (Submarine)</h4>
+                <p>مشروع نوعي لتجهيز المقصورة الداخلية للغواصة بمواد متطورة ومقاومة للضغط والاهتزازات والعوامل البحرية.</p>
+                <div class="marine-card-footer">
+                  <span>Specialized Naval Ergonomics</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           PAGE 6: COMMERCIAL & SPORTS (المساحات الرياضية والتجارية)
+           =================================================================== -->
+      <section class="profile-page" id="page-6" data-page="6">
+        <div class="slide-meta-bar">
+          <div class="page-indicator-badge">
+            <span class="dot"></span>
+            PAGE 06 / 07
+          </div>
+          <div class="slide-category-tag">COMMERCIAL & 3D VISUALIZATION</div>
+        </div>
+
+        <div class="commercial-grid">
+          <!-- Text Details -->
+          <div class="commercial-content-col">
+            <div class="section-lead-header">
+              <span class="section-label">المساحات الرياضية والتجارية | Fitness Studio & Commercial</span>
+              <h2 class="section-title">
+                تصميم وتجهيز <span class="gold-highlight">الستوديو الرياضي والمساحات التجارية</span>
+              </h2>
+            </div>
+
+            <div class="commercial-desc">
+              "تصميم استوديو رياضي عصري يراعي توزيع الحركة، الإضاءة الفعالة، والتحفيز البصري، مع دمج الهوية المعمارية والوظيفية."
+            </div>
+
+            <div class="commercial-specs-grid">
+              <div class="comm-spec-box">
+                <h6>توزيع الحركة والانسيابية</h6>
+                <p>Zoning & Dynamic Circulation Paths</p>
+              </div>
+
+              <div class="comm-spec-box">
+                <h6>الإضاءة المعمارية التحفيزية</h6>
+                <p>Linear Motivational Lighting Schemes</p>
+              </div>
+
+              <div class="comm-spec-box">
+                <h6>عوازل الصوت والأرضيات الخاصة</h6>
+                <p>Acoustic Dampening & High-Impact Flooring</p>
+              </div>
+
+              <div class="comm-spec-box">
+                <h6>الهوية البصرية المتكاملة</h6>
+                <p>Unified Architectural Brand Presence</p>
+              </div>
+            </div>
+
+            <!-- View Switcher -->
+            <div class="view-toggle-btns">
+              <button class="btn-luxury btn-luxury-gold" id="btn-view-3d" onclick="switchCommercialView('3d')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                اللقطة الواقعية 3D Perspective
+              </button>
+              <button class="btn-luxury btn-luxury-outline" id="btn-view-plan" onclick="switchCommercialView('plan')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                المخطط الهندسي 2D Zoning Plan
+              </button>
+            </div>
+          </div>
+
+          <!-- Visual Showcase Screen (#image patch 4#) -->
+          <div class="commercial-visual-col">
+            <div class="commercial-main-display" id="commercial-display" onclick="zoomCommercialCurrent()">
+              <img src="assets/optimized/gym_perspective.jpg" alt="3D Fitness Studio Perspective Render" id="comm-main-img">
+              <div class="comm-overlay-badge" id="comm-overlay-badge">
+                <span class="indicator"></span>
+                <span id="comm-badge-title">3D PHOTOREALISTIC PERSPECTIVE</span>
+              </div>
+              <div class="comm-zoom-hint">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                انقر للتكبير فائق الدقة (Full 1920x1080)
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           PAGE 7: CONTACT US (لنبدأ مشروعك القادم)
+           =================================================================== -->
+      <section class="profile-page" id="page-7" data-page="7">
+        <div class="slide-meta-bar">
+          <div class="page-indicator-badge">
+            <span class="dot"></span>
+            PAGE 07 / 07
+          </div>
+          <div class="slide-category-tag">CONNECT & COMMENCE</div>
+        </div>
+
+        <div class="contact-page-container">
+          <!-- Contact Options -->
+          <div class="contact-left-col">
+            <div class="contact-lead-box">
+              <span class="section-label">تواصل معنا | Let's Build Your Vision</span>
+              <h2 class="section-title">
+                لنبدأ <span class="gold-highlight">مشروعك القادم</span> معاً
+              </h2>
+              <p style="font-size: 1.05rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                يسعدنا تحويل رؤيتكم إلى صرح معماري فاخر يتجاوز التوقعات، بدقة تنفيذية متناهية وإشراف هندسي متكامل.
+              </p>
+            </div>
+
+            <!-- Contact Matrix -->
+            <div class="contact-cards-matrix">
+              <!-- WhatsApp Direct -->
+              <a href="https://wa.me/201062628864?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D9%85%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D9%88%D8%A7%D9%84%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8%D8%A7%D8%AA" target="_blank" class="contact-card-item">
+                <div class="contact-card-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </div>
+                <div class="contact-card-details">
+                  <h5>الواتساب الرئيسي (Direct WhatsApp)</h5>
+                  <p>+20 10 62628864</p>
+                </div>
+              </a>
+
+              <!-- Secondary Phone -->
+              <a href="tel:01094577221" class="contact-card-item">
+                <div class="contact-card-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="contact-card-details">
+                  <h5>الاتصال المباشر (Direct Call)</h5>
+                  <p>01094577221</p>
+                </div>
+              </a>
+
+              <!-- Email -->
+              <a href="mailto:mmdsamy3@gmail.com" class="contact-card-item">
+                <div class="contact-card-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="contact-card-details">
+                  <h5>البريد الإلكتروني (Official Email)</h5>
+                  <p>mmdsamy3@gmail.com</p>
+                </div>
+              </a>
+
+              <!-- Instagram Profile -->
+              <a href="https://www.instagram.com/reel/DP4LClsjc0o/?stkn=OW15cXIzcTJjM3Y2" target="_blank" class="contact-card-item">
+                <div class="contact-card-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </div>
+                <div class="contact-card-details">
+                  <h5>منصة انستجرام (Instagram)</h5>
+                  <p>@mohamed_samy_design</p>
+                </div>
+              </a>
+            </div>
+
+            <!-- Quick Action CTA -->
+            <div class="contact-cta-group">
+              <a href="https://wa.me/201062628864?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%85%D9%87%D9%86%D8%AF%D8%B3%20%D9%85%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A8%D8%AF%D8%A1%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AC%D8%AF%D9%8A%D8%AF" target="_blank" class="btn-luxury btn-luxury-gold">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                بدء محادثة واتساب فورية
+              </a>
+              <button class="btn-luxury btn-luxury-outline" onclick="copyContactInfo()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                نسخ بيانات التواصل
+              </button>
+            </div>
+          </div>
+
+          <!-- Official Brand Plate (Right) -->
+          <div class="contact-plate-card">
+            <div class="contact-logo-frame">
+              <img src="assets/logo.png" alt="Eng. Mohamed Sami Haikal Official Logo">
+            </div>
+
+            <h3 class="contact-plate-name">م. محمد سامي هيكل</h3>
+            <div class="contact-plate-name-en">ENG. MOHAMED SAMI HAIKAL</div>
+
+            <div class="contact-plate-badge">
+              Interior Design & Turnkey Fit-Out Solutions
+            </div>
+
+            <div class="contact-service-tags">
+              <span class="contact-tag">سكنية فاخرة (Villas & Penthouses)</span>
+              <span class="contact-tag">تجديد فنادق (Hotels)</span>
+              <span class="contact-tag">قطع بحرية ويخوت (Yachts & Marine)</span>
+              <span class="contact-tag">صالات واستوديوهات (Commercial)</span>
+            </div>
+
+            <!-- Download Button in Card -->
+            <a href="Mohamed_Samy_Haikal_Company_Profile.pdf" download="Mohamed_Samy_Haikal_Company_Profile.pdf" class="contact-download-banner">
+              <div style="display:flex; align-items:center; gap:0.6rem;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold-primary)"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>تحميل ملف البروفايل بصيغة PDF عالية الدقة (16:9)</span>
+              </div>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold-primary)"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- PRESENTATION HUD (FLOATING CONTROLLER BAR) -->
+  <aside class="presentation-hud" aria-label="Slide Deck Controls">
+    <!-- Prev Slide -->
+    <button class="hud-nav-btn" onclick="prevSlide()" title="الصفحة السابقة (السهم الأيمن / Up)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+    <!-- Page Indicator Dots -->
+    <div class="hud-dots-track" id="hud-dots-track">
+      <span class="hud-dot active" onclick="goToSlide(1)" title="صفحة 1: الغلاف"></span>
+      <span class="hud-dot" onclick="goToSlide(2)" title="صفحة 2: عن المكتب والرؤية"></span>
+      <span class="hud-dot" onclick="goToSlide(3)" title="صفحة 3: خدماتنا وطريقة العمل"></span>
+      <span class="hud-dot" onclick="goToSlide(4)" title="صفحة 4: تطوير الفندق"></span>
+      <span class="hud-dot" onclick="goToSlide(5)" title="صفحة 5: المشاريع البحرية"></span>
+      <span class="hud-dot" onclick="goToSlide(6)" title="صفحة 6: المساحات الرياضية"></span>
+      <span class="hud-dot" onclick="goToSlide(7)" title="صفحة 7: تواصل معنا"></span>
+    </div>
+
+    <!-- Page Counter -->
+    <div class="hud-page-count" id="hud-page-count">01 / 07</div>
+
+    <!-- Next Slide -->
+    <button class="hud-nav-btn" onclick="nextSlide()" title="الصفحة التالية (السهم الأيسر / Space)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+  </aside>
+
+  <!-- LIGHTBOX / HIGH-RESOLUTION MODAL -->
+  <div class="lightbox-modal" id="lightbox-modal" onclick="closeLightbox(event)">
+    <div class="lightbox-content-wrap">
+      <button class="lightbox-close-btn" onclick="closeLightbox(event)" title="إغلاق">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <img src="" alt="High Resolution Preview" class="lightbox-img" id="lightbox-img">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-msg" id="toast-msg">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold-primary)"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    <span id="toast-text">تمت العملية بنجاح</span>
+  </div>
+
+  <!-- APPLICATION JAVASCRIPT -->
+  <script src="app.js"></script>
+</body>
+</html>

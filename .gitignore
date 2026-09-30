@@ -1,0 +1,12 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Large raw/unoptimized assets
+assets/1/
+assets/2/
+assets/3/
+assets/previews/
+
+# PDF
+*.pdf
