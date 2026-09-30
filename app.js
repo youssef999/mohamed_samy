@@ -170,12 +170,12 @@
      KEYBOARD NAVIGATION SHORTCUTS
      -------------------------------------------------------------------------- */
   document.addEventListener('keydown', function (e) {
-    // If lightbox is open, Escape closes it
+    // If lightbox is open — handle its keys
     if (lightboxModal && lightboxModal.classList.contains('active')) {
-      if (e.key === 'Escape') {
-        closeLightbox();
-        return;
-      }
+      if (e.key === 'Escape') { closeLightbox(); return; }
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); lightboxNav(1); return; }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); lightboxNav(-1); return; }
+      return; // don't propagate to slide nav while lightbox is open
     }
 
     if (e.key === 'ArrowLeft' || e.key === 'ArrowDown' || e.key === ' ') {
@@ -190,6 +190,7 @@
       setMode(state.mode === 'presentation' ? 'scroll' : 'presentation');
     }
   });
+
 
   /* --------------------------------------------------------------------------
      TOUCH SWIPE SUPPORT FOR MOBILE / TABLET
@@ -363,17 +364,78 @@
   };
 
   /* --------------------------------------------------------------------------
-     LIGHTBOX / HIGH RESOLUTION MODAL
+     LIGHTBOX / GALLERY NAVIGATION
      -------------------------------------------------------------------------- */
+
+  // Build the gallery list from ALL clickable images in the document
+  let galleryItems = [];
+  let currentGalleryIndex = 0;
+  let lbTouchStartX = 0;
+
+  function buildGallery() {
+    galleryItems = [];
+    // Collect every element that calls openLightbox
+    const allClickable = document.querySelectorAll('[onclick*="openLightbox"]');
+    allClickable.forEach(el => {
+      const match = el.getAttribute('onclick').match(/openLightbox\(['"](.+?)['"]\s*,\s*['"](.+?)['"]\)/);
+      if (match) {
+        galleryItems.push({ src: match[1], caption: match[2] });
+      }
+    });
+    // Also include commercial images triggered by JS buttons (plan / perspective)
+    if (!galleryItems.find(i => i.src === 'assets/4/PERSPECTIVE.png')) {
+      galleryItems.push({ src: 'assets/4/PERSPECTIVE.png', caption: 'التصميم ثلاثي الأبعاد لاستوديو اللياقة البدنية والمنشآت الرياضية' });
+      galleryItems.push({ src: 'assets/4/plan.png', caption: 'المخطط الهندسي المعماري وتوزيع الحركة والأجهزة' });
+    }
+  }
+
+  function updateLightboxUI() {
+    if (!lightboxModal) return;
+    const item = galleryItems[currentGalleryIndex];
+    if (!item) return;
+
+    // Animate image swap
+    lightboxImg.style.opacity = '0';
+    lightboxImg.style.transform = 'scale(0.96)';
+    setTimeout(() => {
+      lightboxImg.src = item.src;
+      lightboxCaption.textContent = item.caption || '';
+      const counter = document.getElementById('lightbox-counter');
+      if (counter) counter.textContent = (currentGalleryIndex + 1) + ' / ' + galleryItems.length;
+      lightboxImg.onload = () => {
+        lightboxImg.style.opacity = '1';
+        lightboxImg.style.transform = 'scale(1)';
+      };
+    }, 120);
+
+    // Show/hide nav buttons
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    if (prevBtn) prevBtn.style.visibility = galleryItems.length > 1 ? 'visible' : 'hidden';
+    if (nextBtn) nextBtn.style.visibility = galleryItems.length > 1 ? 'visible' : 'hidden';
+  }
+
   window.openLightbox = function (src, caption) {
     if (!lightboxModal) return;
-    lightboxImg.src = src;
-    lightboxCaption.textContent = caption || '';
+    if (galleryItems.length === 0) buildGallery();
+    // Find the clicked image in gallery
+    const idx = galleryItems.findIndex(i => i.src === src);
+    currentGalleryIndex = idx >= 0 ? idx : 0;
     lightboxModal.classList.add('active');
+    lightboxImg.style.opacity = '0';
+    lightboxImg.style.transform = 'scale(0.96)';
+    updateLightboxUI();
+  };
+
+  window.lightboxNav = function (dir) {
+    if (galleryItems.length === 0) return;
+    currentGalleryIndex = (currentGalleryIndex + dir + galleryItems.length) % galleryItems.length;
+    updateLightboxUI();
   };
 
   window.closeLightbox = function (e) {
-    if (e && e.target === lightboxImg) return; // don't close when clicking image itself
+    if (e && e.target === lightboxImg) return;
+    if (e && (e.target.closest('.lightbox-nav-btn'))) return;
     if (lightboxModal) {
       lightboxModal.classList.remove('active');
       setTimeout(() => {
@@ -383,6 +445,20 @@
       }, 300);
     }
   };
+
+  // Swipe support inside lightbox
+  if (lightboxModal) {
+    lightboxModal.addEventListener('touchstart', e => { lbTouchStartX = e.touches[0].clientX; }, { passive: true });
+    lightboxModal.addEventListener('touchend', e => {
+      const diff = lbTouchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) lightboxNav(diff > 0 ? 1 : -1);
+    }, { passive: true });
+  }
+
+  // Build gallery once DOM is ready
+  buildGallery();
+
+
 
   /* --------------------------------------------------------------------------
      TOAST NOTIFICATIONS & COPY CONTACT

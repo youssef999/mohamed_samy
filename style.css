@@ -1799,8 +1799,8 @@ body.mode-scroll .presentation-hud {
 .lightbox-modal {
   position: fixed;
   inset: 0;
-  background: rgba(7, 9, 11, 0.94);
-  backdrop-filter: blur(14px);
+  background: rgba(7, 9, 11, 0.96);
+  backdrop-filter: blur(16px);
   z-index: 2000;
   display: flex;
   align-items: center;
@@ -1821,27 +1821,83 @@ body.mode-scroll .presentation-hud {
 .lightbox-content-wrap {
   position: relative;
   max-width: 90vw;
-  max-height: 88vh;
+  max-height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0;
 }
 
 .lightbox-img {
-  max-width: 100%;
-  max-height: 80vh;
+  max-width: min(88vw, 900px);
+  max-height: 75vh;
   object-fit: contain;
   border-radius: var(--radius-md);
   border: 1px solid var(--gold-border);
   box-shadow: var(--shadow-luxury);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  display: block;
+}
+
+/* NAV BUTTONS */
+.lightbox-nav-btn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  z-index: 2010;
+  backdrop-filter: blur(8px);
+}
+
+.lightbox-nav-btn:hover {
+  background: var(--gold-primary);
+  border-color: var(--gold-primary);
+  color: #0D1013;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev {
+  left: 1.5rem;
+}
+
+.lightbox-next {
+  right: 1.5rem;
+}
+
+/* FOOTER: caption + counter */
+.lightbox-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 1rem;
 }
 
 .lightbox-caption {
-  margin-top: 1rem;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-pure);
   text-align: center;
+  line-height: 1.5;
+}
+
+.lightbox-counter {
+  font-size: 0.8rem;
+  color: var(--gold-primary);
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.1em;
+  opacity: 0.85;
 }
 
 .lightbox-close-btn {
@@ -1864,6 +1920,7 @@ body.mode-scroll .presentation-hud {
   background: var(--gold-primary);
   color: #0D1013;
 }
+
 
 /* ==========================================================================
    TOAST NOTIFICATION
