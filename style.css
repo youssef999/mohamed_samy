@@ -128,7 +128,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2.5rem;
+  padding: 10px 2.5rem 0;
   z-index: 1000;
   transition: var(--transition-smooth);
 }
@@ -413,6 +413,7 @@ body.mode-scroll .profile-page {
   margin-left: auto;
   margin-right: auto;
   box-shadow: var(--shadow-luxury);
+  padding-top: 2.5rem;
 }
 
 /* Slide Header / Badge Meta */
@@ -1952,14 +1953,18 @@ body.mode-scroll .presentation-hud {
 }
 
 /* ==========================================================================
-   RESPONSIVE ADAPTATIONS (MOBILE / TABLET)
+   RESPONSIVE ADAPTATIONS — TABLET (max 1200px)
    ========================================================================== */
 @media (max-width: 1200px) {
   .site-header {
-    padding: 0 1.5rem;
+    padding: 10px 1.5rem 0;
   }
   .header-nav {
-    display: none; /* Collapsed for tablet/mobile */
+    display: none;
+  }
+  .header-actions .btn-luxury {
+    font-size: 0.78rem;
+    padding: 0.4rem 0.75rem;
   }
   .cover-container {
     grid-template-columns: 1fr;
@@ -1987,10 +1992,61 @@ body.mode-scroll .presentation-hud {
   }
 }
 
+/* ==========================================================================
+   RESPONSIVE ADAPTATIONS — MOBILE (max 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
   :root {
-    --header-height: 64px;
+    --header-height: 60px;
   }
+
+  /* --- HEADER MOBILE --- */
+  .site-header {
+    padding: 10px 1rem 0;
+    gap: 0.5rem;
+  }
+  .brand-titles {
+    display: none; /* hide text, keep logo */
+  }
+  .brand-logo-container {
+    height: 40px;
+    padding: 3px 8px;
+  }
+  .brand-logo-img {
+    height: 30px;
+  }
+  .header-nav {
+    display: none;
+  }
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+  }
+  .header-actions .btn-luxury {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.6rem;
+    gap: 0.3rem;
+  }
+  .header-actions .btn-luxury svg {
+    width: 13px;
+    height: 13px;
+  }
+  .mode-toggle {
+    gap: 2px;
+  }
+  .mode-btn {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.5rem;
+    gap: 0.25rem;
+  }
+  .btn-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* --- FORCE SCROLL MODE ON MOBILE --- */
   body.mode-presentation {
     overflow-y: auto;
     height: auto;
@@ -2007,21 +2063,170 @@ body.mode-scroll .presentation-hud {
     border-radius: 0;
   }
   .profile-page {
-    position: relative;
-    inset: auto;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    height: auto;
-    min-height: 100vh;
-    padding: 2rem 1rem;
-    display: block;
+    position: relative !important;
+    inset: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    height: auto !important;
+    min-height: 100svh;
+    padding: calc(var(--header-height) + 1.5rem) 1rem 2rem;
+    display: flex !important;
+    flex-direction: column;
   }
   .presentation-hud {
     display: none;
   }
-  .services-cards-grid, .marine-cards-grid, .workflow-steps-row, .contact-cards-matrix {
+
+  /* --- SLIDE META BAR --- */
+  .slide-meta-bar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  /* --- PAGE 1: COVER --- */
+  .cover-container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .cover-visual-col {
+    display: none;
+  }
+  .cover-content-col {
+    padding: 1rem 0;
+    align-items: flex-start;
+  }
+  .cover-main-title {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    line-height: 1.25;
+  }
+  .cover-sub-title {
+    font-size: 1.1rem;
+  }
+  .cover-cta-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .cover-cta-row .btn-luxury {
+    width: 100%;
+    justify-content: center;
+  }
+  .cover-stats-row {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* --- PAGE 2: ABOUT --- */
+  .about-grid, .page-inner-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  .about-image-card {
+    max-height: 220px;
+  }
+  .patch-photos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  /* --- PAGE 3: SERVICES --- */
+  .services-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .service-card {
+    padding: 1.25rem;
+  }
+
+  /* --- PAGE 4: HOTEL --- */
+  .hotel-page-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  .hotel-thumbnails-picker {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-start;
+  }
+  .hotel-thumb-btn {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.6rem;
+  }
+  .ba-slider-wrap {
+    height: 220px;
+  }
+
+  /* --- PAGE 5: MARINE --- */
+  .marine-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .marine-filter-pills {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .marine-pill {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.7rem;
+  }
+  .marine-vessel-card img {
+    height: 160px;
+  }
+
+  /* --- PAGE 6: COMMERCIAL/GYM --- */
+  .commercial-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  .view-toggle-btns {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  /* --- PAGE 7: CONTACT --- */
+  .contact-page-container {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  .contact-cards-matrix {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .contact-info-card {
+    padding: 1rem;
+  }
+
+  /* --- WORKFLOW STEPS --- */
+  .workflow-steps-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* --- LIGHTBOX NAV on mobile --- */
+  .lightbox-prev { left: 0.5rem; }
+  .lightbox-next { right: 0.5rem; }
+  .lightbox-nav-btn {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+  .site-header {
+    padding: 10px 0.75rem 0;
+  }
+  .header-actions .btn-luxury span {
+    display: none; /* icon only on tiny screens */
+  }
+  .cover-main-title {
+    font-size: 1.6rem;
   }
 }
 
