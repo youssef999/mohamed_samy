@@ -357,11 +357,55 @@
   /* --------------------------------------------------------------------------
      LIGHTBOX / GALLERY NAVIGATION
      -------------------------------------------------------------------------- */
+  // Hotel Full Photo Gallery Data (7 Before + 13 After = 20 photos)
+  const hotelGalleryItems = [
+    // --- قبل التطوير (BEFORE) - 7 صور ---
+    { src: 'assets/2/before/1000186308.jpg', caption: 'مشروع الفندق — قبل التطوير (1/7): أعمال التكسير وإزالة التشطيب القديم' },
+    { src: 'assets/2/before/1000186573.jpg', caption: 'مشروع الفندق — قبل التطوير (2/7): تأسيس مسارات الكهرباء وتجهيز الحوائط' },
+    { src: 'assets/2/before/1000186574.jpg', caption: 'مشروع الفندق — قبل التطوير (3/7): أعمال المحارة وتأسيسات السباكة' },
+    { src: 'assets/2/before/1000187115.jpg', caption: 'مشروع الفندق — قبل التطوير (4/7): تجهيز الغرف وإعادة تقسيم المساحات' },
+    { src: 'assets/2/before/1000187118.jpg', caption: 'مشروع الفندق — قبل التطوير (5/7): تمديدات الحمامات وشبكة الصرف' },
+    { src: 'assets/2/before/1000187592.jpg', caption: 'مشروع الفندق — قبل التطوير (6/7): معالجة الأرضيات وتجهيز الفتحات المعمارية' },
+    { src: 'assets/2/before/1000221273.jpg', caption: 'مشروع الفندق — قبل التطوير (7/7): الممرات والغرف قبل التشطيب النهائي' },
+
+    // --- بعد التشطيب (AFTER) - 13 صورة ---
+    { src: 'assets/2/after/Suite - Indoor.jpg', caption: 'مشروع الفندق — بعد التشطيب (1/13): الجناح الرئاسي — الصالة الداخلية والمفروشات الفاخرة' },
+    { src: 'assets/2/after/Suite - King Bed 2.jpg', caption: 'مشروع الفندق — بعد التشطيب (2/13): غرفة النوم الملكية (King Suite Bedroom) — إضاءة وألواح خشبية' },
+    { src: 'assets/2/after/Room - Bed.jpg', caption: 'مشروع الفندق — بعد التشطيب (3/13): الغرفة الفندقية المزدوجة — تشطيب عصري وإضاءة مخفية' },
+    { src: 'assets/2/after/Suite - Outside.jpg', caption: 'مشروع الفندق — بعد التشطيب (4/13): التراس والواجهة الخارجية للجناح — إطلالة فندقية راقية' },
+    { src: 'assets/2/after/Suite - Outside 2.jpg', caption: 'مشروع الفندق — بعد التشطيب (5/13): منطقة الجلوس الخارجية التابعة للجناح' },
+    { src: 'assets/2/after/Suite - Door 1.jpg', caption: 'مشروع الفندق — بعد التشطيب (6/13): المدخل الرئيسي للجناح — باب خشب أرو وتشطيب مودرن' },
+    { src: 'assets/2/after/Suite - Door 2.jpg', caption: 'مشروع الفندق — بعد التشطيب (7/13): الممر الداخلي وباب الجناح الفاخر' },
+    { src: 'assets/2/after/Double Room - Toilet.jpg', caption: 'مشروع الفندق — بعد التشطيب (8/13): الحمام الفندقي الفاخر — رخام بورسلين وإكسسوارات ذهبية' },
+    { src: 'assets/2/after/Double Room - Toilet 3.jpg', caption: 'مشروع الفندق — بعد التشطيب (9/13): كابينة الشاور والحمام الفندقي' },
+    { src: 'assets/2/after/Room - Toilet 1.jpg', caption: 'مشروع الفندق — بعد التشطيب (10/13): تفاصيل تشطيب الحمام — حوض رخام وإضاءة ليد مخفية' },
+    { src: 'assets/2/after/869450363.jpg', caption: 'مشروع الفندق — بعد التشطيب (11/13): أعمال التشطيب الداخلي المكتملة — دهانات وديكورات جدارية' },
+    { src: 'assets/2/after/913141967.jpg', caption: 'مشروع الفندق — بعد التشطيب (12/13): تشطيب الأرضيات والبورسلين — إتقان الفواصل وجودة التنفيذ' },
+    { src: 'assets/2/after/922041753.jpg', caption: 'مشروع الفندق — بعد التشطيب (13/13): تفاصيل الأبواب والأخشاب بعد التركيب والدهان النهائي' }
+  ];
+
+  window.openHotelGallery = function (type, idx) {
+    let index = 0;
+    if (typeof type === 'string') {
+      index = (type === 'after') ? (7 + idx) : idx;
+    } else if (typeof type === 'number') {
+      index = type;
+    }
+    galleryItems = [...hotelGalleryItems];
+    currentGalleryIndex = Math.max(0, Math.min(index, galleryItems.length - 1));
+    if (lightboxModal) {
+      lightboxModal.classList.add('active');
+      lightboxImg.style.opacity = '0';
+      lightboxImg.style.transform = 'scale(0.96)';
+      updateLightboxUI();
+    }
+  };
 
   // Build the gallery list from ALL clickable images in the document
   let galleryItems = [];
   let currentGalleryIndex = 0;
   let lbTouchStartX = 0;
+
 
   function buildGallery() {
     galleryItems = [];
@@ -408,15 +452,20 @@
 
   window.openLightbox = function (src, caption) {
     if (!lightboxModal) return;
-    if (galleryItems.length === 0) buildGallery();
-    // Find the clicked image in gallery
+    buildGallery();
     const idx = galleryItems.findIndex(i => i.src === src);
-    currentGalleryIndex = idx >= 0 ? idx : 0;
+    if (idx >= 0) {
+      currentGalleryIndex = idx;
+    } else {
+      galleryItems.push({ src: src, caption: caption || '' });
+      currentGalleryIndex = galleryItems.length - 1;
+    }
     lightboxModal.classList.add('active');
     lightboxImg.style.opacity = '0';
     lightboxImg.style.transform = 'scale(0.96)';
     updateLightboxUI();
   };
+
 
   window.lightboxNav = function (dir) {
     if (galleryItems.length === 0) return;

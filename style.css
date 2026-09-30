@@ -1050,190 +1050,164 @@ body.mode-scroll .profile-page {
   background: var(--bg-slate);
 }
 
-.hotel-page-grid {
+.hotel-gallery-page {
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-columns: 0.95fr 1.25fr;
-  padding: 4.5rem 3.5rem 2.5rem 3.5rem;
-  gap: 3rem;
-  align-items: center;
+  padding: 4.5rem 3.5rem 3rem 3.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-border) transparent;
 }
 
-.hotel-info-col {
+.hotel-gallery-page::-webkit-scrollbar {
+  width: 6px;
+}
+.hotel-gallery-page::-webkit-scrollbar-thumb {
+  background: var(--gold-border);
+  border-radius: 4px;
+}
+
+.hotel-gallery-header {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
-.hotel-desc-block {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  border-right: 3px solid var(--gold-primary);
-  padding-right: 1.25rem;
+.hotel-gallery-stats {
+  display: flex;
+  gap: 1rem;
 }
 
-.hotel-features-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.85rem;
-  margin-bottom: 1.5rem;
-}
-
-.hotel-feat-item {
+.hg-stat {
   background: rgba(255, 255, 255, 0.025);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: 0.75rem 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-}
-
-.hotel-feat-icon {
-  color: var(--gold-primary);
-  flex-shrink: 0;
-}
-
-.hotel-feat-text h6 {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-pure);
-}
-
-.hotel-feat-text span {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  font-family: var(--font-en-sans);
-}
-
-/* Interactive Before & After Comparison Slider */
-.before-after-wrapper {
-  position: relative;
-  width: 100%;
-  height: 86%;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--gold-border);
-  box-shadow: var(--shadow-luxury);
-  user-select: none;
-  background: #000;
-}
-
-.ba-image-container {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.ba-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* After Image (Top Layer clipped) */
-.ba-after-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
-  transition: clip-path 0.05s linear;
-}
-
-/* Handle line */
-.ba-handle-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 3px;
-  background: var(--gold-gradient);
-  z-index: 20;
-  pointer-events: none;
-  box-shadow: 0 0 15px rgba(197, 168, 128, 0.8);
-}
-
-.ba-handle-circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #0D1013;
-  border: 2px solid var(--gold-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold-light);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-  cursor: ew-resize;
-  pointer-events: all;
-}
-
-/* Badges */
-.ba-badge {
-  position: absolute;
-  bottom: 1.25rem;
-  padding: 0.35rem 0.95rem;
-  border-radius: 30px;
-  font-size: 0.76rem;
-  font-weight: 700;
-  z-index: 15;
+  border-radius: var(--radius-md);
+  padding: 0.6rem 1.2rem;
+  text-align: center;
+  min-width: 90px;
   backdrop-filter: blur(8px);
 }
 
-.ba-badge-before {
-  right: 1.25rem;
-  background: rgba(13, 16, 19, 0.8);
+.hg-num {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  font-family: var(--font-en-serif);
+  line-height: 1.2;
+}
+
+.hg-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.hotel-gallery-section {
+  margin-bottom: 2.25rem;
+}
+
+.hotel-gallery-section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.hgs-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-family: var(--font-en-sans);
+}
+
+.hgs-before {
+  background: rgba(229, 115, 115, 0.15);
   color: #E57373;
   border: 1px solid rgba(229, 115, 115, 0.4);
 }
 
-.ba-badge-after {
-  left: 1.25rem;
-  background: rgba(13, 16, 19, 0.8);
-  color: #81C784;
-  border: 1px solid rgba(129, 199, 132, 0.4);
+.hgs-after {
+  background: rgba(197, 168, 128, 0.15);
+  color: var(--gold-light);
+  border: 1px solid var(--gold-primary);
 }
 
-.hotel-thumbnails-picker {
-  display: flex;
-  gap: 0.65rem;
-  margin-top: 0.85rem;
+.hgs-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-pure);
 }
 
-.hotel-thumb-btn {
-  height: 48px;
-  width: 76px;
-  border-radius: var(--radius-sm);
+.hotel-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 0.85rem;
+}
+
+.hotel-photo-item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border-subtle);
+  background: #0d1013;
   cursor: pointer;
-  transition: var(--transition-smooth);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hotel-thumb-btn.active, .hotel-thumb-btn:hover {
-  border-color: var(--gold-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 0 10px var(--gold-glow);
-}
-
-.hotel-thumb-btn img {
+.hotel-photo-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
 }
+
+.hotel-photo-item:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--gold-primary);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 15px var(--gold-glow);
+  z-index: 2;
+}
+
+.hotel-photo-item:hover img {
+  transform: scale(1.08);
+}
+
+.hpi-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13, 16, 19, 0.85) 0%, rgba(13, 16, 19, 0.2) 60%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light);
+}
+
+.hotel-photo-item:hover .hpi-overlay {
+  opacity: 1;
+}
+
+.hpi-overlay svg {
+  transform: scale(0.85);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8));
+}
+
+.hotel-photo-item:hover .hpi-overlay svg {
+  transform: scale(1.15);
+}
+
 
 /* ==========================================================================
    PAGE 5: MARINE & SPECIALIZED (المشاريع البحرية والقطاعات الخاصة)
@@ -2223,22 +2197,25 @@ body.mode-scroll .presentation-hud {
   }
 
   /* --- PAGE 4: HOTEL --- */
-  .hotel-page-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem;
-    padding: 1rem 0;
+  .hotel-gallery-page {
+    padding: 3.5rem 1rem 2rem 1rem !important;
   }
-  .hotel-thumbnails-picker {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: flex-start;
+  .hotel-photo-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.6rem !important;
   }
-  .hotel-thumb-btn {
-    font-size: 0.72rem;
-    padding: 0.35rem 0.6rem;
+  .hotel-gallery-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
-  .ba-slider-wrap {
-    height: 220px;
+  .hotel-gallery-stats {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .hg-stat {
+    flex: 1;
+    padding: 0.5rem 0.5rem;
   }
 
   /* --- PAGE 5: MARINE --- */
