@@ -446,10 +446,10 @@ def render_page_4():
     img = Image.new('RGB', (WIDTH, HEIGHT), color=BG_DARK)
     draw = ImageDraw.Draw(img)
     draw_luxury_borders(draw)
-    draw_header_meta(draw, 4, "مشروع تطوير وتجهيز الفندق", "HOTEL RENOVATION & TURNKEY FIT-OUT")
+    draw_header_meta(draw, 4, "مشروع موتيل الأقصر (Luxor Motel)", "LUXOR MOTEL RENOVATION & FIT-OUT")
 
     # Title & Text
-    draw.text((1840, 125), ar("مشروع تطوير وتجهيز الفندق الفاخر"), fill=GOLD_PRIMARY, font=get_font(26, arabic=True), anchor='ra')
+    draw.text((1840, 125), ar("مشروع تطوير وتجهيز موتيل الأقصر (Luxor Motel)"), fill=GOLD_PRIMARY, font=get_font(26, arabic=True), anchor='ra')
     draw.text((80, 135), "BEFORE & AFTER ARCHITECTURAL TRANSFORMATION", fill=TEXT_MUTED, font=get_font(15, arabic=False))
 
     quote_hotel = "إعادة إنعاش وتطوير المساحات الفندقية برؤية معمارية حديثة مع مراعاة أعلى درجات الجودة والفينش."
