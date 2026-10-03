@@ -12,4 +12,4 @@ assets/previews/
 *.avi
 
 # PDF
-*.pdf
+!Mohamed_Samy_Haikal_Company_Profile.pdf
