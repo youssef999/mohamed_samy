@@ -7,10 +7,11 @@
   'use strict';
 
   // State Management
+  const isMobileScreen = () => window.innerWidth <= 768;
   const state = {
     currentSlide: 1,
     totalSlides: 7,
-    mode: 'presentation', // 'presentation' or 'scroll'
+    mode: (document.body.classList.contains('mode-scroll') || isMobileScreen()) ? 'scroll' : 'presentation',
     isDraggingBA: false,
     commercialCurrentView: '3d', // '3d' or 'plan'
     hotelCurrentPair: 0
@@ -83,6 +84,17 @@
       }
     });
 
+    // Update Mobile Nav links
+    const mNavLinks = document.querySelectorAll('.m-nav-item');
+    mNavLinks.forEach((link) => {
+      const pageNum = parseInt(link.getAttribute('data-page'), 10);
+      if (pageNum === state.currentSlide) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
     // Update HUD dots
     hudDots.forEach((dot, idx) => {
       if (idx + 1 === state.currentSlide) {
@@ -96,14 +108,6 @@
     if (hudCount) {
       hudCount.textContent = `0${state.currentSlide} / 0${state.totalSlides}`;
     }
-
-    // Scroll smoothly to section if in scroll mode
-    if (state.mode === 'scroll') {
-      const targetPage = document.getElementById(`page-${state.currentSlide}`);
-      if (targetPage) {
-        targetPage.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
   }
 
   window.goToSlide = function (n) {
@@ -111,6 +115,19 @@
     if (n > state.totalSlides) n = state.totalSlides;
     state.currentSlide = n;
     updateSlidesUI();
+
+    const targetPage = document.getElementById(`page-${n}`);
+    if (targetPage) {
+      if (state.mode === 'scroll' || window.innerWidth <= 768) {
+        const headerOffset = 64;
+        const elementPosition = targetPage.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+      }
+    }
   };
 
   window.nextSlide = function () {
@@ -119,7 +136,7 @@
     } else {
       state.currentSlide = 1; // loop back to cover
     }
-    updateSlidesUI();
+    goToSlide(state.currentSlide);
   };
 
   window.prevSlide = function () {
@@ -128,11 +145,55 @@
     } else {
       state.currentSlide = state.totalSlides;
     }
-    updateSlidesUI();
+    goToSlide(state.currentSlide);
   };
 
   window.handleNavClick = function (e, pageNum) {
     e.preventDefault();
+    goToSlide(pageNum);
+  };
+
+  /* --------------------------------------------------------------------------
+     MOBILE NAVIGATION DRAWER
+     -------------------------------------------------------------------------- */
+  window.toggleMobileMenu = function () {
+    const drawer = document.getElementById('mobile-nav-drawer');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    const btnMenu = document.getElementById('btn-mobile-menu');
+    if (!drawer) return;
+    const isOpen = drawer.classList.toggle('active');
+    if (overlay) overlay.classList.toggle('active', isOpen);
+    if (btnMenu) {
+      const openIcon = btnMenu.querySelector('.icon-menu-open');
+      const closeIcon = btnMenu.querySelector('.icon-menu-close');
+      if (openIcon && closeIcon) {
+        openIcon.style.display = isOpen ? 'none' : 'block';
+        closeIcon.style.display = isOpen ? 'block' : 'none';
+      }
+    }
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  };
+
+  window.closeMobileMenu = function () {
+    const drawer = document.getElementById('mobile-nav-drawer');
+    const overlay = document.getElementById('mobile-drawer-overlay');
+    const btnMenu = document.getElementById('btn-mobile-menu');
+    if (drawer) drawer.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+    if (btnMenu) {
+      const openIcon = btnMenu.querySelector('.icon-menu-open');
+      const closeIcon = btnMenu.querySelector('.icon-menu-close');
+      if (openIcon && closeIcon) {
+        openIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+      }
+    }
+    document.body.style.overflow = '';
+  };
+
+  window.handleMobileNavClick = function (e, pageNum) {
+    e.preventDefault();
+    closeMobileMenu();
     goToSlide(pageNum);
   };
 
