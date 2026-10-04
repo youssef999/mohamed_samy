@@ -1438,6 +1438,31 @@ body.mode-scroll .profile-page {
   background: var(--bg-slate);
 }
 
+.commercial-page {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-border) transparent;
+}
+
+.commercial-page::-webkit-scrollbar {
+  width: 6px;
+}
+.commercial-page::-webkit-scrollbar-thumb {
+  background: var(--gold-border);
+  border-radius: 4px;
+}
+
+.render-gallery {
+  padding: 1rem 3.5rem 3rem 3.5rem;
+}
+
+.render-photo-grid .hotel-photo-item {
+  aspect-ratio: 1 / 1;
+}
+
 .commercial-grid {
   width: 100%;
   height: 100%;
@@ -2309,6 +2334,12 @@ body.mode-scroll .presentation-hud {
     overflow: visible;
     height: auto;
   }
+  .commercial-grid {
+    padding-top: 4.5rem;
+  }
+  .render-gallery {
+    padding: 0 1.5rem 2.5rem 1.5rem;
+  }
 }
 
 /* ==========================================================================
@@ -2469,6 +2500,7 @@ body.mode-scroll .presentation-hud {
   .page-inner-grid,
   .hotel-gallery-page,
   .marine-page-container,
+  .commercial-page,
   .commercial-grid,
   .contact-page-container {
     width: 100% !important;
@@ -2729,6 +2761,12 @@ body.mode-scroll .presentation-hud {
   }
   .commercial-main-display {
     height: 230px !important;
+  }
+  .render-gallery {
+    padding: 1.5rem 0 0 0 !important;
+  }
+  .render-photo-grid .hotel-photo-item {
+    aspect-ratio: 1 / 1 !important;
   }
 
   /* --- PAGE 7: CONTACT --- */

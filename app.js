@@ -475,6 +475,69 @@
     }
   };
 
+  // 3D Renders Gallery — files live in assets/3d/thumbs (grid) and assets/3d/web (lightbox)
+  const renderGalleryItems = [
+    { file: 'render-01.jpg', group: 'living', caption: 'صالة معيشة بكنبة ركنية وثريا دائرية وتجاليد خشبية' },
+    { file: 'render-02.jpg', group: 'living', caption: 'ريسيبشن بجلسات بيضاء وطاولات دائرية ولوحات فنية' },
+    { file: 'render-03.jpg', group: 'living', caption: 'ريسيبشن واسع بسقف جبسي وإضاءة مخفية' },
+    { file: 'render-04.jpg', group: 'living', caption: 'ركن جلوس بنيش مقوس وإضاءة معلقة' },
+    { file: 'render-05.jpg', group: 'living', caption: 'صالة معيشة بتجليد مقوس وكراسي فوتيه' },
+    { file: 'render-06.jpg', group: 'living', caption: 'لقطة علوية لمنطقة المعيشة وتوزيع الأثاث' },
+    { file: 'render-07.jpg', group: 'living', caption: 'تفاصيل ركن الجلوس والفوتيهات' },
+    { file: 'render-08.jpg', group: 'living', caption: 'حائط ديكوري بشرائح خشبية وإضاءة جدارية' },
+    { file: 'render-09.jpg', group: 'living', caption: 'كونسول مدخل بمرايا دائرية ديكورية' },
+    { file: 'render-10.jpg', group: 'living', caption: 'منطقة طعام بإطلالة على النافذة' },
+    { file: 'render-11.jpg', group: 'living', caption: 'طاولة طعام بإضاءة معلقة خطية' },
+    { file: 'render-12.jpg', group: 'bedroom', caption: 'غرفة نوم رئيسية بثريا دائرية ومنطقة دريسنج' },
+    { file: 'render-13.jpg', group: 'bedroom', caption: 'غرفة نوم بخلفية رخامية وثريا ذهبية' },
+    { file: 'render-14.jpg', group: 'bedroom', caption: 'غرفة نوم رئيسية بحائط مزخرف وإضاءة دائرية' },
+    { file: 'render-15.jpg', group: 'bedroom', caption: 'غرفة نوم رئيسية — زاوية جانبية للسرير' },
+    { file: 'render-16.jpg', group: 'bedroom', caption: 'غرفة نوم رئيسية — السرير وركن الجلوس' },
+    { file: 'render-17.jpg', group: 'bedroom', caption: 'غرفة نوم رئيسية — ركن الجلوس والإطلالة' },
+    { file: 'render-18.jpg', group: 'bedroom', caption: 'غرفة نوم رئيسية — حائط التلفزيون' },
+    { file: 'render-19.jpg', group: 'bedroom', caption: 'لقطة علوية لغرفة النوم وتوزيع الأثاث' },
+    { file: 'render-20.jpg', group: 'bedroom', caption: 'غرفة نوم بانورامية بتشطيب داكن وفخم' },
+    { file: 'render-21.jpg', group: 'bedroom', caption: 'غرفة نوم بانورامية — ركن الجلوس' },
+    { file: 'render-22.jpg', group: 'bedroom', caption: 'غرفة نوم بحائط دواليب مدمجة' },
+    { file: 'render-23.jpg', group: 'bedroom', caption: 'غرفة أطفال — لقطة علوية' },
+    { file: 'render-24.jpg', group: 'bedroom', caption: 'غرفة أطفال — مكتب وتسريحة' },
+    { file: 'render-25.jpg', group: 'bathroom', caption: 'حمام بوحدة حوض خشبية وإضاءة طبيعية' },
+    { file: 'render-26.jpg', group: 'bathroom', caption: 'حمام رئيسي ببانيو وكابينة شاور زجاجية' },
+    { file: 'render-27.jpg', group: 'bathroom', caption: 'حمام بمرآة مضيئة LED ووحدة حوض معلقة' },
+    { file: 'render-28.jpg', group: 'bathroom', caption: 'لقطة علوية للحمام وتوزيع الأدوات الصحية' },
+    { file: 'render-29.jpg', group: 'bathroom', caption: 'حمام بتجليد خشبي ونافذة علوية' },
+    { file: 'render-30.jpg', group: 'bathroom', caption: 'لقطة علوية لحمام الضيوف' },
+    { file: 'render-31.jpg', group: 'bathroom', caption: 'حمام برخام داكن وإضاءة مخفية' }
+  ];
+
+  function buildRenderGrids() {
+    const zoomIcon = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>';
+    document.querySelectorAll('[data-render-group]').forEach(grid => {
+      const group = grid.getAttribute('data-render-group');
+      grid.innerHTML = renderGalleryItems
+        .map((item, idx) => item.group !== group ? '' :
+          `<div class="hotel-photo-item" onclick="openRenderGallery(${idx})">
+            <img src="assets/3d/thumbs/${item.file}" alt="${item.caption}" loading="lazy" decoding="async">
+            <div class="hpi-overlay">${zoomIcon}</div>
+          </div>`)
+        .join('');
+    });
+  }
+
+  window.openRenderGallery = function (idx) {
+    galleryItems = renderGalleryItems.map((item, i) => ({
+      src: 'assets/3d/web/' + item.file,
+      caption: `التصميم ثلاثي الأبعاد (${i + 1}/${renderGalleryItems.length}): ${item.caption}`
+    }));
+    currentGalleryIndex = Math.max(0, Math.min(idx, galleryItems.length - 1));
+    if (lightboxModal) {
+      lightboxModal.classList.add('active');
+      lightboxImg.style.opacity = '0';
+      lightboxImg.style.transform = 'scale(0.96)';
+      updateLightboxUI();
+    }
+  };
+
   // Build the gallery list from ALL clickable images in the document
   let galleryItems = [];
   let currentGalleryIndex = 0;
@@ -659,5 +722,6 @@
 
   // Init
   initCardGalleries();
+  buildRenderGrids();
   updateSlidesUI();
 })();
