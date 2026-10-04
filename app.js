@@ -523,7 +523,8 @@
     const contactSummary = `م. محمد سامي هيكل — تصميم داخلي وتشطيبات متكاملة
 هاتف وواتساب: +201062628864 / 01094577221
 البريد الإلكتروني: mmdsamy3@gmail.com
-انستجرام: https://www.instagram.com/reel/DP4LClsjc0o/?stkn=OW15cXIzcTJjM3Y2`;
+انستجرام: https://www.instagram.com/reel/DP4LClsjc0o/?stkn=OW15cXIzcTJjM3Y2
+فيسبوك: https://www.facebook.com/share/1J64SXxzkk/?mibextid=wwXIfr`;
 
     if (navigator.clipboard) {
       navigator.clipboard.writeText(contactSummary).then(() => {
